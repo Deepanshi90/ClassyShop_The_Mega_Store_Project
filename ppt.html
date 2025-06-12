@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classy – The Mega Store: Project Report SPA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices: 
+        - Text blocks for descriptive content (HTML/CSS).
+        - Clickable accordions for NKSS services (HTML/CSS/JS).
+        - Image carousel for UI screenshots (HTML/CSS/JS, using placeholders).
+        - Bar chart for admin dashboard stats (Chart.js/Canvas).
+        - HTML/CSS for conceptual architecture diagrams.
+        - Justification: Enhance readability, engagement, and information hierarchy.
+    -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width for readability */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 350px; /* Max height */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .sidebar-link {
+            transition: all 0.3s ease;
+        }
+        .sidebar-link.active, .sidebar-link:hover {
+            background-color: #fecaca; /* red-100 */
+            color: #b91c1c; /* red-700 */
+            border-left: 4px solid #b91c1c; /* red-700 */
+        }
+        .content-section {
+            scroll-margin-top: 20px; /* Offset for fixed header if any, or just for smoother scroll-to */
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-stone-100 text-stone-800 flex">
+
+    <aside class="w-64 bg-white shadow-lg p-6 fixed top-0 left-0 h-full overflow-y-auto">
+        <h1 class="text-2xl font-bold text-red-700 mb-8">Project Report</h1>
+        <nav>
+            <ul class="space-y-2">
+                <li><a href="#home" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Home</a></li>
+                <li><a href="#company-profile" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Company Profile</a></li>
+                <li><a href="#project-overview" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Project Overview</a></li>
+                <li><a href="#core-features" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Core Features</a></li>
+                <li><a href="#tech-architecture" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Tech & Architecture</a></li>
+                <li><a href="#design-showcase" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Design Showcase</a></li>
+                <li><a href="#system-operation" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">System Operation</a></li>
+                <li><a href="#challenges-future" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Challenges & Future</a></li>
+                <li><a href="#tools-references" class="sidebar-link block py-2 px-4 rounded-lg font-medium text-stone-700">Tools & References</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="ml-64 p-8 flex-1 overflow-y-auto">
+        
+        <section id="home" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-4xl font-bold text-red-700 mb-6">Classy – The Mega Store</h2>
+            <p class="text-xl text-stone-600 mb-4">A Full-Stack E-commerce Web Application</p>
+            <div class="text-stone-700 space-y-2">
+                <p><strong>Submitted By:</strong> Deepanshi (Roll No: 11, MCA 4th Semester)</p>
+                <p><strong>Under the Guidance of:</strong> Prof. Sonal Chawla</p>
+                <p><strong>Institution:</strong> Panjab University, Chandigarh</p>
+                <p><strong>Session:</strong> 2023-2025</p>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Introduction from Report</h3>
+                <p class="text-stone-700 leading-relaxed">
+                    This project, "Classy – The Mega Store," is a modern and dynamic full-stack e-commerce web application designed to deliver a smart, seamless, and engaging shopping experience for users, while providing powerful management tools for administrators. Crafted with precision using Visual Studio Code, the platform harnesses the capabilities of React.js and Tailwind CSS for a sleek and responsive user interface, while Node.js, Express.js, and MongoDB power the backend for scalable and efficient data handling. The primary objective is to design and develop a modern, scalable, and intelligent e-commerce platform emphasizing data consistency, operational efficiency, cost-effectiveness, and ease of use.
+                </p>
+            </div>
+        </section>
+
+        <section id="company-profile" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Company Profile: NKSS Digital Services</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                This section provides an overview of NKSS Digital Services, the company where the industrial training and project development took place. It highlights their vision, services, and commitment to digital excellence.
+            </p>
+            <div class="space-y-4">
+                <p><strong>Name:</strong> NKSS Digital Services, Karnal</p>
+                <p><strong>Established:</strong> November, 2023 (as per report)</p>
+                <p><strong>Address:</strong> Shop, R.k. Puram, Part-2, Street No 5, Stadium Road, Karnal, Haryana, India, 132001</p>
+                <p><strong>Contact:</strong> Phone: 0172-4634529 | Mobile: +91 9876795015 | Email: nkssdigitalservices@gmail.com</p>
+                <p><strong>Website:</strong> <a href="https://nkssdigital.com/" target="_blank" class="text-red-600 hover:underline">https://nkssdigital.com/</a></p>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Company Overview (from Report)</h3>
+                <p class="text-stone-700 leading-relaxed">
+                    NKSS Digital Services was founded with a vision to empower businesses and individuals with innovative, efficient, and future-ready digital solutions. They are committed digital partners focused on creating experiences, solving problems, and unlocking new possibilities through smart technologies and strategic thinking. Their client-centric approach emphasizes collaboration, transparency, and continuous communication.
+                </p>
+            </div>
+            <div class="mt-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Services Provided</h3>
+                <div class="space-y-3">
+                    <div class="accordion-item bg-stone-50 p-4 rounded-lg shadow">
+                        <button class="accordion-header w-full text-left font-semibold text-red-700 flex justify-between items-center">
+                            <span>Full-Stack Web Development</span>
+                            <span class="arrow text-xl">&#9660;</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-stone-600">We build scalable and responsive websites and web applications using modern technologies like React, Node.js, and Django.</div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 p-4 rounded-lg shadow">
+                        <button class="accordion-header w-full text-left font-semibold text-red-700 flex justify-between items-center">
+                            <span>Mobile App Development</span>
+                            <span class="arrow text-xl">&#9660;</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-stone-600">Our team develops high-quality mobile applications for both Android and iOS using frameworks like Flutter and React Native.</div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 p-4 rounded-lg shadow">
+                        <button class="accordion-header w-full text-left font-semibold text-red-700 flex justify-between items-center">
+                            <span>E-commerce Solutions</span>
+                            <span class="arrow text-xl">&#9660;</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-stone-600">We offer custom-built e-commerce platforms equipped with real-time product updates, payment gateway integration, and inventory management systems.</div>
+                    </div>
+                    <div class="accordion-item bg-stone-50 p-4 rounded-lg shadow">
+                        <button class="accordion-header w-full text-left font-semibold text-red-700 flex justify-between items-center">
+                            <span>UI/UX Design</span>
+                            <span class="arrow text-xl">&#9660;</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-stone-600">We design user-centric interfaces that combine visual appeal with functional simplicity to enhance user engagement.</div>
+                    </div>
+                     <div class="accordion-item bg-stone-50 p-4 rounded-lg shadow">
+                        <button class="accordion-header w-full text-left font-semibold text-red-700 flex justify-between items-center">
+                            <span>Digital Marketing</span>
+                            <span class="arrow text-xl">&#9660;</span>
+                        </button>
+                        <div class="accordion-content mt-2 text-stone-600">Our marketing team provides SEO, content creation, and social media strategies to boost online visibility and brand reach.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="project-overview" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Project Overview: Classy – The Mega Store</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                This section delves into the specifics of the "Classy – The Mega Store" project, covering its core concept, key highlights as detailed in the report, its objectives, and the overall scope of the application.
+            </p>
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Key Highlights (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-2">
+                    <li><strong>Dual Panel System:</strong> Separate, feature-rich interfaces for Users and Administrators.</li>
+                    <li><strong>AI-Powered Assistance:</strong> A smart assistant for order-related queries and enhanced user interaction.</li>
+                    <li><strong>Order Management & Tracking:</strong> Real-time status updates for users and efficient processing for admins.</li>
+                    <li><strong>Blogs & Reviews:</strong> Curated blog content and product reviews for an engaging shopping environment.</li>
+                    <li><strong>Secure & Scalable:</strong> Robust authentication, profile management, and efficient stock management.</li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Project Objectives (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-2">
+                    <li>Build a full-stack web platform meeting real-world commercial standards.</li>
+                    <li>Ensure data consistency and accuracy across all modules.</li>
+                    <li>Implement a cost-effective architecture using open-source tools.</li>
+                    <li>Enable easy data refreshing and real-time updates.</li>
+                    <li>Provide efficient information management tools for admins.</li>
+                    <li>Design a scalable and secure system.</li>
+                    <li>Streamline order and inventory processes.</li>
+                    <li>Enhance user interaction and accessibility.</li>
+                    <li>Support secure multi-mode payments.</li>
+                    <li>Improve operational efficiency and user satisfaction.</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Project Scope (from Report)</h3>
+                <p class="text-stone-700 leading-relaxed mb-2">The scope encompasses a robust e-commerce platform with features for:</p>
+                <ul class="list-disc list-inside text-stone-700 space-y-2">
+                    <li><strong>User Interface:</strong> Engaging and intuitive browsing, filtering, and purchasing.</li>
+                    <li><strong>User Features:</strong> Account registration (OTP/Google), cart/wishlist, multi-payment checkout, order tracking, AI assistance, product reviews.</li>
+                    <li><strong>Administrator Features:</strong> Management of users, products (variants like RAM/size/weight), inventory, orders, banners, blogs, categories.</li>
+                    <li><strong>Product & Inventory Management:</strong> Dynamic listings, real-time stock updates.</li>
+                    <li><strong>Security Measures:</strong> OTP verification, data encryption, secure payment gateways.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="core-features" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Core Features Deep Dive</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                "Classy – The Mega Store" is packed with features designed for both end-users and administrators. This section explores the functionalities of the User Panel, Admin Panel, and the AI-powered assistance integrated into the platform.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-stone-50 p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">User Panel Functionality</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li><strong>Authentication:</strong> Register via email/OTP or Google. Secure login & password recovery.</li>
+                        <li><strong>Product Browsing:</strong> Search, filter by variants (RAM, size, weight), view details.</li>
+                        <li><strong>Shopping:</strong> Add to cart/wishlist, manage quantities.</li>
+                        <li><strong>Checkout:</strong> Select address, review cart, pay via Razorpay, PayPal, or COD.</li>
+                        <li><strong>Order Tracking:</strong> View real-time status (Pending, Confirmed, Delivered).</li>
+                        <li><strong>Support:</strong> AI chatbot for order queries, read/add product reviews, explore blogs.</li>
+                    </ul>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3">Admin Panel Functionality</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-2">
+                        <li><strong>Dashboard:</strong> Manage home slides, banners, view user database.</li>
+                        <li><strong>Product Control:</strong> Add/edit products with variants, categories, subcategories.</li>
+                        <li><strong>Inventory:</strong> Real-time stock updates, out-of-stock notifications.</li>
+                        <li><strong>Order Handling:</strong> Monitor, confirm, or cancel user orders.</li>
+                        <li><strong>Content Management:</strong> Post and manage blog content.</li>
+                        <li><strong>Profile Management:</strong> Update admin contact, email, photo, password.</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="mt-8 bg-stone-50 p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">AI-Powered Assistance</h3>
+                <p class="text-stone-700 leading-relaxed">
+                    The platform integrates an AI Chat Assistant (reportedly using OpenRouterAI or similar) to enhance customer support. Users can ask order-related questions, get help with FAQs, and receive automated assistance for common queries. This feature aims to improve user engagement and automate routine support tasks.
+                </p>
+            </div>
+            <div class="mt-8">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Admin Dashboard Stats (Example)</h3>
+                <p class="text-stone-700 leading-relaxed mb-4">The admin panel includes a dashboard to visualize key metrics. Below is a sample chart representing data similar to what might be found (based on Figure 2 in the report).</p>
+                <div class="chart-container bg-stone-50 p-4 rounded-lg shadow">
+                    <canvas id="adminStatsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-architecture" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Technology Stack & Architecture</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                This section outlines the MERN stack (MongoDB, Express.js, React.js, Node.js) that forms the backbone of "Classy – The Mega Store," along with other crucial technologies and the overall system architecture.
+            </p>
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Core MERN Stack</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-stone-50 p-4 rounded-lg shadow text-center">
+                        <h4 class="font-bold text-lg text-red-700">MongoDB</h4>
+                        <p class="text-sm text-stone-600">NoSQL database for flexible data storage.</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded-lg shadow text-center">
+                        <h4 class="font-bold text-lg text-red-700">Express.js</h4>
+                        <p class="text-sm text-stone-600">Backend web framework for Node.js.</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded-lg shadow text-center">
+                        <h4 class="font-bold text-lg text-red-700">React.js</h4>
+                        <p class="text-sm text-stone-600">Frontend library for dynamic UIs.</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded-lg shadow text-center">
+                        <h4 class="font-bold text-lg text-red-700">Node.js</h4>
+                        <p class="text-sm text-stone-600">Server-side JavaScript runtime.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Application Architecture Overview (from Report)</h3>
+                <div class="space-y-4 text-stone-700">
+                    <p><strong>Frontend (Client-Side):</strong> React.js with Tailwind CSS. Handles UI, user interactions, and communicates with the backend via APIs (Axios/Fetch).</p>
+                    <p><strong>Backend (Server-Side):</strong> Node.js with Express.js. Acts as an API server, handles authentication (JWT + OTP), business logic, and integrates with third-party services.</p>
+                    <p><strong>Database Layer:</strong> MongoDB with Mongoose. Stores user data, products, orders, categories, blogs. Flexible schema supports product variations.</p>
+                    <p><strong>Authentication & Authorization:</strong> Google OAuth 2.0, Email + OTP verification, Role-based access control.</p>
+                    <p><strong>AI Integration:</strong> AI Chat Assistant for order help and FAQs.</p>
+                    <p><strong>Payment Gateway Integration:</strong> Razorpay, PayPal, and Cash on Delivery (COD).</p>
+                </div>
+            </div>
+            <div class="mt-6">
+                 <h3 class="text-2xl font-semibold text-red-600 mb-3">Conceptual Data Flow</h3>
+                 <div class="bg-stone-50 p-6 rounded-lg shadow text-stone-700 leading-relaxed">
+                    <p class="mb-2"><strong>User Interaction:</strong> User interacts with React Frontend.</p>
+                    <p class="mb-2"><span class="font-bold text-red-600">&darr;</span> API Request</p>
+                    <p class="mb-2"><strong>Backend Processing:</strong> Express.js API Server handles logic, auth, validation.</p>
+                    <p class="mb-2"><span class="font-bold text-red-600">&harr;</span> Database Operations / Third-Party API Calls</p>
+                    <p class="mb-2"><strong>Data Storage/Services:</strong> MongoDB, Payment Gateways (Razorpay, PayPal), AI Chatbot APIs, Email/OTP Services.</p>
+                    <p class="mb-2"><span class="font-bold text-red-600">&uarr;</span> API Response</p>
+                    <p><strong>UI Update:</strong> React Frontend updates based on response.</p>
+                 </div>
+            </div>
+        </section>
+
+        <section id="design-showcase" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Design Showcase & UI/UX</h2>
+             <p class="text-stone-700 leading-relaxed mb-6">
+                This section highlights the user interface design of "Classy – The Mega Store." The UI is designed to be intuitive, responsive, and visually engaging, ensuring a seamless experience for both users and administrators. The report includes several screenshots (Figures 1-20+) showcasing various parts of the application. Below are placeholders representing some of these key interfaces.
+            </p>
+            <div class="mb-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Key UI/UX Principles (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-2">
+                    <li>Responsive layout for desktops, tablets, and mobile devices.</li>
+                    <li>Role-based dashboards tailored to Admin and Customer operations.</li>
+                    <li>Accessible navigation via a collapsible sidebar.</li>
+                    <li>Intuitive forms for product management and user input.</li>
+                    <li>Real-time feedback using toast messages and modals.</li>
+                    <li>State management with Recoil for seamless UI updates.</li>
+                </ul>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 image-carousel">
+                <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/f87171/ffffff?text=User+Interface+(Fig.1)" alt="User Interface Screenshot (Placeholder for Figure 1 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">User Homepage (Conceptual)</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/fb923c/ffffff?text=Admin+Interface+(Fig.2)" alt="Admin Interface Screenshot (Placeholder for Figure 2 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">Admin Dashboard (Conceptual)</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/facc15/ffffff?text=Product+Listing+(Fig.5)" alt="Product Listing Screenshot (Placeholder for Figure 5 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">Admin Product Management (Conceptual)</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/a3e635/ffffff?text=Payment+Screen+(Fig.6)" alt="Payment Screenshot (Placeholder for Figure 6 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">Payment Integration (Conceptual)</p>
+                </div>
+                <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/4ade80/ffffff?text=AI+Chat+(Fig.10)" alt="AI Chat Screenshot (Placeholder for Figure 10 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">AI Chat Interface (Conceptual)</p>
+                </div>
+                 <div class="bg-stone-50 p-4 rounded-lg shadow">
+                    <img src="https://placehold.co/600x400/22d3ee/ffffff?text=Cart+Page+(Fig.17)" alt="Cart Page Screenshot (Placeholder for Figure 17 from report)" class="rounded-md w-full h-64 object-cover mb-2">
+                    <p class="text-center text-sm text-stone-600">User Cart Page (Conceptual)</p>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-stone-500 italic">Note: Images are placeholders representing screenshots from the project report (e.g., Figure 1, Figure 2, etc.).</p>
+        </section>
+
+        <section id="system-operation" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">System Operation</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                This section describes the high-level operational flow of "Classy – The Mega Store," from user authentication to admin management, as detailed in the project report.
+            </p>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-xl font-semibold text-red-600 mb-2">1. User Sign-In / Sign-Up</h3>
+                    <p class="text-stone-700">Users land on a login/sign-up interface. New users register (Name, Email, Password), while existing users log in. Authentication uses JWT and data is stored in MongoDB. (Report Figure 21)</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-red-600 mb-2">2. Secured Routing</h3>
+                    <p class="text-stone-700">Protected routes ensure only authenticated users can access features like cart, orders, and personal history.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-red-600 mb-2">3. User Experience</h3>
+                    <p class="text-stone-700">Logged-in users browse products, add to cart (Recoil state for instant updates), and proceed to checkout with secure payment integration. (Report Figure 22)</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-red-600 mb-2">4. Admin Panel Operations</h3>
+                    <p class="text-stone-700">Admins access a comprehensive dashboard to manage products, categories, orders, blog content, banners, and user details. (Report Figure 23)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges-future" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Challenges & Future Scope</h2>
+             <p class="text-stone-700 leading-relaxed mb-6">
+                Every project faces challenges and offers opportunities for future development. This section summarizes the limitations identified in the report and potential enhancements for "Classy – The Mega Store."
+            </p>
+            <div class="mb-6 bg-stone-50 p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Current Limitation (from Report)</h3>
+                <p class="text-stone-700 leading-relaxed">
+                    The primary limitation noted is the **absence of a comprehensive order tracking system** for users after a purchase is made. While users can see a status (Pending, Confirmed, Delivered), detailed tracking (e.g., shipping updates, estimated delivery date) is not available. This can affect user experience and transparency.
+                </p>
+                <p class="mt-2 text-stone-700 leading-relaxed">
+                    <strong>Impact:</strong> Lack of order transparency, potentially reduced trust, and increased customer support inquiries.
+                </p>
+            </div>
+            <div class="bg-stone-50 p-6 rounded-lg shadow">
+                <h3 class="text-2xl font-semibold text-red-600 mb-3">Future Enhancements (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-2">
+                    <li>Implement a detailed order tracking system with real-time updates and notifications.</li>
+                    <li>Integrate more advanced AI capabilities for the chatbot (e.g., using GPT-style APIs for more dynamic support and personalization).</li>
+                    <li>Expand analytics and reporting features within the admin panel for better business insights.</li>
+                    <li>Introduce a store registration module to allow multiple vendors to sell on the platform (if not already fully implemented).</li>
+                    <li>Further optimize performance and scalability to handle a larger user base and product catalog.</li>
+                    <li>Enhance UI/UX based on user feedback and evolving design trends.</li>
+                    <li>Strengthen security measures with ongoing audits and updates.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tools-references" class="content-section min-h-screen bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-red-700 mb-6">Tools Used & References</h2>
+            <p class="text-stone-700 leading-relaxed mb-6">
+                This section lists the key development tools, technologies, and platforms utilized in building "Classy – The Mega Store," as mentioned in the project report.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-stone-50 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold text-red-600 mb-3">Development Tools</h3>
+                    <ul class="list-disc list-inside text-stone-700 space-y-1">
+                        <li>Visual Studio Code (IDE)</li>
+                        <li>React Developer Tools (Browser Extension)</li>
+                        <li>Recoil Developer Tools</li>
+                        <li>Firebase Console</li>
+                        <li>Postman (API Testing)</li>
+                        <li>Git & GitHub (Version Control)</li>
+                        <li>Chrome Developer Tools</li>
+                    </ul>
+                </div>
+                <div class="bg-stone-50 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-semibold text-red-600 mb-3">Core Technologies & Libraries</h3>
+                     <ul class="list-disc list-inside text-stone-700 space-y-1">
+                        <li>HTML5, CSS3, JavaScript</li>
+                        <li>React.js (with Vite)</li>
+                        <li>Recoil (State Management)</li>
+                        <li>Tailwind CSS / SCSS</li>
+                        <li>Node.js & Express.js</li>
+                        <li>MongoDB & Mongoose</li>
+                        <li>JWT (JSON Web Tokens)</li>
+                        <li>Axios/Fetch API</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 bg-stone-50 p-6 rounded-lg shadow">
+                <h3 class="text-xl font-semibold text-red-600 mb-3">Third-Party Services & APIs (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-1">
+                    <li>Cloudinary (Media Management)</li>
+                    <li>Razorpay & PayPal (Payment Gateways)</li>
+                    <li>Firebase (Google Authentication)</li>
+                    <li>Nodemailer (Email Service)</li>
+                    <li>OpenRouterAI (AI Chatbot - as mentioned in Appendix)</li>
+                    <li>FormSubmit (Contact Form Handling - as mentioned in Appendix)</li>
+                </ul>
+            </div>
+             <div class="mt-8">
+                <h3 class="text-xl font-semibold text-red-600 mb-3">References (from Report)</h3>
+                <ul class="list-disc list-inside text-stone-700 space-y-1 text-sm">
+                    <li>React JS: <a href="https://react.dev/" target="_blank" class="text-red-600 hover:underline">react.dev</a></li>
+                    <li>CSS (W3Schools): <a href="https://www.w3schools.com/css/" target="_blank" class="text-red-600 hover:underline">w3schools.com/css</a></li>
+                    <li>YouTube (General Resource)</li>
+                    <li>Mongoose: <a href="https://mongoosejs.com/" target="_blank" class="text-red-600 hover:underline">mongoosejs.com</a></li>
+                    <li>Express: <a href="https://expressjs.com/" target="_blank" class="text-red-600 hover:underline">expressjs.com</a></li>
+                    <li>Node JS: <a href="https://nodejs.org/en" target="_blank" class="text-red-600 hover:underline">nodejs.org</a></li>
+                    <li>ChatGPT (General Resource)</li>
+                    <li>Recoil: <a href="https://recoiljs.org/" target="_blank" class="text-red-600 hover:underline">recoiljs.org</a></li>
+                    <li>Firebase: <a href="https://firebase.google.com/docs" target="_blank" class="text-red-600 hover:underline">firebase.google.com/docs</a></li>
+                    <li>OpenAI API: <a href="https://openai.com/api/" target="_blank" class="text-red-600 hover:underline">openai.com/api</a></li>
+                    <li>Cloudinary: <a href="https://cloudinary.com/" target="_blank" class="text-red-600 hover:underline">cloudinary.com</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                document.querySelectorAll('.sidebar-link').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.arrow');
+                
+                // Close other accordions in the same group (optional)
+                // header.closest('.space-y-3').querySelectorAll('.accordion-content').forEach(item => {
+                //     if (item !== content && item.style.maxHeight) {
+                //         item.style.maxHeight = null;
+                //         item.previousElementSibling.querySelector('.arrow').innerHTML = '&#9660;'; // Down arrow
+                //     }
+                // });
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    arrow.innerHTML = '&#9660;'; // Down arrow
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    arrow.innerHTML = '&#9650;'; // Up arrow
+                }
+            });
+        });
+
+        // Set active link based on scroll
+        const sections = document.querySelectorAll('.content-section');
+        const navLinks = document.querySelectorAll('.sidebar-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Set initial active link for the first section on load
+        if (navLinks.length > 0) {
+            navLinks[0].classList.add('active');
+        }
+
+
+        // Chart.js for Admin Stats
+        const ctx = document.getElementById('adminStatsChart');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Users', 'Total Orders', 'Products & Categories', 'Total Reviews'],
+                    datasets: [{
+                        label: 'Admin Dashboard Stats',
+                        data: [3, 22, 31, 16], // Data from Figure 2 (Products & Categories: 24+7=31)
+                        backgroundColor: [
+                            'rgba(239, 68, 68, 0.7)', // red-500
+                            'rgba(249, 115, 22, 0.7)', // orange-500
+                            'rgba(234, 179, 8, 0.7)', // yellow-500
+                            'rgba(34, 197, 94, 0.7)'  // green-500
+                        ],
+                        borderColor: [
+                            'rgba(220, 38, 38, 1)',
+                            'rgba(245, 158, 11, 1)',
+                            'rgba(202, 138, 4, 1)',
+                            'rgba(22, 163, 74, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 8,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.2)'
+                            },
+                            ticks: {
+                                color: '#57534e' // stone-600
+                            }
+                        },
+                        x: {
+                             grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#57534e' // stone-600
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Hiding legend as it's a single dataset
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(41, 37, 36, 0.9)', // stone-800
+                            titleColor: '#f5f5f4', // stone-100
+                            bodyColor: '#f5f5f4', // stone-100
+                            cornerRadius: 6,
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw;
+                                }
+                            }
+                        }
+                    },
+                    hover: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>
+<!-- ```
+
+This HTML file creates a single-page application with:
+* A **fixed sidebar navigation** for easy access to different sections of the report.
+* **Thematic sections** that logically group information from your project report (Home, Company Profile, Project Overview, Core Features, Tech & Architecture, Design Showcase, System Operation, Challenges & Future, Tools & References).
+* **Tailwind CSS** for styling, aiming for a clean, professional look with a warm neutral palette and red accents.
+* **JavaScript** for smooth scrolling navigation and interactive accordion elements for services.
+* **Chart.js** to display a simple bar chart for the "Admin Dashboard Stats" based on the data mentioned in your report (Figure 2).
+* **Placeholder images** (`https://placehold.co/`) are used where screenshots from your report would be displayed. You would replace these URLs with actual image paths if you were hosting this.
+* **Introductory paragraphs** for each major section to provide context.
+* All required **placeholder comments** are included at the top of the `<head>` section.
+
+You can save this code as an `.html` file and open it in a web browser to view the interactive repo -->

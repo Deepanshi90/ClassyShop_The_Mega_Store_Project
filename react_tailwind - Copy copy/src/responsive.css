@@ -1,0 +1,156 @@
+
+
+@media only screen and (min-width:320px) and (max-width:992px){
+    html,body{
+        overflow-x: hidden;
+    }
+
+    .mobileNav a.active button{
+      color: #ff5252 !important;
+    }
+
+    .navigation ul{
+      white-space: nowrap;
+      overflow-x: scroll;
+      display: block !important;
+      overflow-y: hidden;
+      text-align: center;
+    }
+    
+    .navigation ul::-webkit-scrollbar{
+      display: none !important;
+    }
+    .navigation ul li{
+      display: inline-block !important;
+      vertical-align: top !important;
+
+    }
+    .container{
+      width: 95% !important;
+max-width: 95% !important;
+    }
+
+     .btn-sm{
+      padding: 3px 10px !important;
+      font-size: 11px !important;
+     }
+      .btn-lg{
+      padding: 5px 10px !important;
+      font-size: 14px !important;
+     }
+     .btn{
+      padding: 5px 10px !important;
+      font-size: 12px !important;
+     }
+
+     .btn svg{
+      font-size: 15px !important;
+
+     }
+     
+     .scrollableBox{
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: block !important;
+     }
+       .scrollableBox::-webkit-scrollbar{
+        display: none;
+       }
+     .scrollableBox .box{
+      display: inline-block !important;
+      vertical-align: top !important;
+      margin-right: 12px !important;
+      width: 300px !important;
+
+     }
+    
+     .scrollableBox .col{
+      display: inline-block !important;
+      vertical-align: top !important;
+      margin-right: 12px !important;
+      width: 200px !important;
+
+     }
+      .scrollableBox .box .info *{
+        white-space: break-spaces !important;
+      }
+
+      .productSlider .swiper, .blogSection .swiper{
+        overflow: hidden !important;
+      }
+
+      .resBannerSlider{
+         white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      display: block !important;
+      }
+
+      .resBannerSlider .swiper-slider{
+        display: inline-block !important;
+      vertical-align: top !important;
+      margin-right: 12px !important;
+      width: 300px !important;
+      }
+
+      .resBannerSlider .swiper-slider {
+        white-space: break-spaces !important;
+      }
+
+      .footerBoxWrap{
+        padding-left: 20px !important;
+      }
+      .footerBoxWrap .col{
+        width: 180px !important;
+      }
+      
+      .sidebarWraper .open{
+        bottom: 0px !important;
+        opacity: 1 !important;
+      }
+}
+
+
+@media only screen and (min-width:320px) and (max-width:767px){
+   .MuiTabs-flexContainer button{
+      font-size: 13px !important;
+   }
+
+   .productItem .addToCartBtn{
+    padding: 7px 13px !important;
+   }
+
+   .part2_col1 li a, .part1_col2 li a{
+    font-size: 13px !important;
+   }
+
+   .sidebar{
+    max-height: 100vh !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+   }
+   .sidebar::-webkit-scrollbar{
+    display: none !important;
+   }
+
+   .zoomProductSliderThumbs.space .swiper-wrapper{
+    padding-top: 0px !important;
+   }
+
+   
+}
+
+@media only screen and (min-width:320px) and (max-width:575px){
+.cartPanel .MuiPaper-root,
+   .addressPanel .MuiPaper-root{
+    width: 300px !important;
+   }
+}
+
+@media only screen and (min-width:575px) and (max-width:767px){
+.cartPanel .MuiPaper-root,
+   .addressPanel .MuiPaper-root{
+    width: 400px !important;
+   }
+}
